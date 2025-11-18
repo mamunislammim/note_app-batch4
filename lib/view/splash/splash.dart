@@ -12,7 +12,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   timerFunCall()async{
     await Future.delayed(Duration(seconds: 2));
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> BottomBar()));
   }
 
   @override

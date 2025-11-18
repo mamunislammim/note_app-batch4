@@ -1,8 +1,11 @@
+
 import 'package:flutter/material.dart';
-import 'package:note_app/database/notes.dart';
+import '../../../database/notes.dart';
+
 
 class NoteCardWidget extends StatelessWidget {
   const NoteCardWidget({super.key, required this.i});
+
   final int i;
 
   @override

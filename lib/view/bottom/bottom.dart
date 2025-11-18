@@ -8,14 +8,14 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 import '../note/note.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class BottomBar extends StatefulWidget {
+  const BottomBar({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<BottomBar> createState() => _BottomBarState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _BottomBarState extends State<BottomBar> {
   int selectedIndex = 0;
   List screens = [NoteScreen(), FolderScreen(), TrashScreen(), SettingsScreen()];
 
