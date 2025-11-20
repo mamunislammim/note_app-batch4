@@ -27,9 +27,8 @@ class _BottomBarState extends State<BottomBar> {
         currentIndex: selectedIndex,
         onTap: (v) {
           log("========V : $v");
-          setState(() {
-            selectedIndex = v;
-          });
+          selectedIndex = v;
+          setState(() {});
         },
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,

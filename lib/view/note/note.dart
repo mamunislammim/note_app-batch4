@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:note_app/database/notes.dart';
+import 'package:note_app/view/note/widgets/delete_dialogue.dart';
 import 'package:note_app/view/note/widgets/note_card.dart';
 import 'package:note_app/view/note/widgets/note_drawer.dart';
 import 'package:note_app/view/note/widgets/search_field.dart';
@@ -45,6 +48,17 @@ class _NoteScreenState extends State<NoteScreen> {
         shrinkWrap: true,
         itemCount: NotesData.list.length,
         itemBuilder: (context, index) => InkWell(
+          onLongPress: () {
+            showDialog(
+              context: context,
+              builder: (context) => DeleteDialogue(
+                onTap: () {
+                  NotesData.list.removeAt(index);
+                  Navigator.pop(context);
+                },
+              ),
+            );
+          },
           onTap: () {
             Navigator.push(
               context,
@@ -57,7 +71,14 @@ class _NoteScreenState extends State<NoteScreen> {
               ),
             );
           },
-          child: NoteCardWidget(i: index),
+          child: NoteCardWidget(
+            i: index,
+            onTap: () {
+              NotesData.trashList.add(NotesData.list[index]);
+              NotesData.list.removeAt(index);
+              setState(() {});
+            },
+          ),
         ),
       ),
     );
