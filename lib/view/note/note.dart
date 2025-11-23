@@ -2,11 +2,13 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:note_app/database/notes.dart';
+import 'package:note_app/view/login/login.dart';
 import 'package:note_app/view/note/widgets/delete_dialogue.dart';
 import 'package:note_app/view/note/widgets/note_card.dart';
 import 'package:note_app/view/note/widgets/note_drawer.dart';
 import 'package:note_app/view/note/widgets/search_field.dart';
 import 'package:note_app/view/note_add_edit/add.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../note_view/view.dart';
 
@@ -26,6 +28,17 @@ class _NoteScreenState extends State<NoteScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: Text("Notes", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700)),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              final SharedPreferences p = await SharedPreferences.getInstance();
+              p.remove("isLogin");
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (c) => LoginScreen()));
+            },
+            icon: Icon(Icons.logout),
+          ),
+          SizedBox(width: 10),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
