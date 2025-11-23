@@ -64,12 +64,17 @@ class _NoteScreenState extends State<NoteScreen> {
               context,
               MaterialPageRoute(
                 builder: (context) => NoteViewScreen(
+                  index: index,
+                  id: NotesData.list[index]['id'],
                   title: "${NotesData.list[index]['title']}",
                   date: "${NotesData.list[index]['created_at']}",
                   details: "${NotesData.list[index]['details']}",
                 ),
               ),
-            );
+            ).then((value) {
+              log("======SSSSS============");
+              setState(() {});
+            });
           },
           child: NoteCardWidget(
             i: index,
