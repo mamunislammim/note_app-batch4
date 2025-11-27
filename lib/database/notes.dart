@@ -4,3 +4,5 @@ class NotesData {
   ];
   static List<Map<String, dynamic>> trashList = [];
 }
+
+
